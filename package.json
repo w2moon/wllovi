@@ -1,0 +1,22 @@
+{
+  "name": "wllovi",
+  "version": "1.0.0",
+  "description": "for lovigame inc",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w2moon/wllovi.git"
+  },
+  "keywords": [
+    "wllovi"
+  ],
+  "author": "w2moon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/w2moon/wllovi/issues"
+  },
+  "homepage": "https://github.com/w2moon/wllovi#readme"
+}
