@@ -3,7 +3,6 @@ var process = require('process')
 var path = require('path');
 var url = require('url');
 var util = require('./lib/util');
-var domain = require('domain');
 
 var FOLDER_COMPONENTS = "./components/";
 var PORT = 8124;
@@ -23,12 +22,40 @@ var callMethod = function(obj,next){
     }
 }
 
+var reqObj = function(request){
+    return new Promise(function(resolve,reject){
+        if(request.method == 'POST'){
+            var queryData = "";
+            request.on('data',function(data){
+                queryData += data;
+                if(queryData.length > 1e6){
+                    queryData = "";
+                    request.connection.destroy();
+                    reject("data too large");
+                }
+            });
+
+            request.on('end',function(){
+                resolve(JSON.parse(queryData));
+            });
+        }
+        else{
+            resolve(url.parse(request.url,true).query);
+        }
+
+    });
+}
 http.createServer(function (request, response) {
-    var obj = url.parse(request.url,true).query;
-    callMethod(obj,function(result){
-        response.writeHead(200, {'Content-Type': 'text/plain'});
-        response.end(JSON.stringify(result));
-    })
+    reqObj(request)
+    .then(function(obj){
+        callMethod(obj,function(result){
+            response.writeHead(200, {'Content-Type': 'text/plain'});
+            response.end(JSON.stringify(result));
+        })
+    },function(err){
+        response.writeHead(200,{'Content-Type':'text/plain'});
+        response.end(err);
+    });
 }).listen(PORT);
 
 process.on('uncaughtException',function(err){
