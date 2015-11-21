@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var wllovi = require('../wllovi');
+var wlutil = require('../lib/util');
+var util = require('util')
+var obj = wlutil.arg2json(process.argv);
+wllovi(obj,function(ret){
+    if(util.isArray(ret)){
+        for(var i=0,len=ret.length;i<len;++i){
+            console.log(ret[i]);
+        }
+    }
+    else{
+        console.log(ret)
+    }
+
+});

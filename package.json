@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "for lovigame inc",
   "main": "index.js",
+  "bin":{"wllovi":"bin/wllovi"},
   "scripts": {
     "test": "test"
   },
