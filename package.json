@@ -2,8 +2,10 @@
   "name": "wllovi",
   "version": "1.0.0",
   "description": "for lovigame inc",
-  "main": "index.js",
-  "bin":{"wllovi":"bin/wllovi"},
+  "main": "wllovi.js",
+  "bin": {
+    "wllovi": "bin/wllovi"
+  },
   "scripts": {
     "test": "test"
   },
@@ -19,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/w2moon/wllovi/issues"
   },
-  "homepage": "https://github.com/w2moon/wllovi#readme"
+  "homepage": "https://github.com/w2moon/wllovi#readme",
+  "dependencies": {
+    "jsdom": "^7.0.2"
+  }
 }
