@@ -1,11 +1,72 @@
 var jsdom = require('jsdom');
-
 var URL = "http://www.iciba.com/";
 
+var obj2txt = function(ret){
+    var lend = "\n";
+    var sep = " ";
+    var str = "";
+    str += ret.name + lend;
+    if(ret.speak.length>0) str += lend + ret.speak.join(';')+lend;
+    if(ret.level.length>0) str += lend + ret.level.join(';')+lend;
+    if(ret.change.length>0){
+        str += lend;
+        for(var i=0,len=ret.change.length;i<len;++i){
+            str += ret.change[i].type;
+            str += sep;
+            str += ret.change[i].desc;
+            str += lend;
+        }
+        str += lend;
+    }
+    if(ret.desc.length>0){
+        str += lend;
+        for(var i=0,len=ret.desc.length;i<len;++i){
+            str += ret.desc[i].type;
+            str += sep;
+            str += ret.desc[i].desc;
+            str += lend;
+        }
+        str += lend;
+    }
+    if(ret.english.length > 0){
+        str += lend;
+        for(var i=0,len=ret.english.length;i<len;++i ){
+            str += ret.english[i].name;
+            str += lend;
+            str += ret.english[i].desc.join(lend);
+            str += lend;
+        }
+        str += lend;
+    }
+    if(ret.relationship.length>0){
+        str += lend;
+        for(var i=0,len=ret.relationship.length;i<len;++i){
+            str += ret.relationship[i].name;
+            str += lend+lend;
+            for(var j=0,jlen=ret.relationship[i].desc.length;j<jlen;++j){
+                str += lend;
+                str += ret.relationship[i].desc[j].name;
+                str += lend;
+                str += ret.relationship[i].desc[j].words.join(';');
+                str += lend;
+            }
+            str += lend;
+        }
+    }
+
+    if(ret.analyze.length > 0){
+        for(var i=0,len=ret.analyze.length;i<len;++i){
+            str += ret.analyze[i].name;
+            str += ret.analyze[i].desc;
+            str += lend;
+        }
+    }
+    return str;
+}
 module.exports = function(obj,next){
 
     jsdom.env(URL+obj.content,
-            ["http://code.jquery.com/jquery.js"],
+            ["http://libs.baidu.com/jquery/1.9.1/jquery.min.js"],
             function(err,window){
                 var ret = {};
                 if(err){
@@ -88,12 +149,13 @@ module.exports = function(obj,next){
                 result.find('.prep-order .text-sentence .item').each(function(){
                      $(this).find('a').each(function(){
                          ret.analyze.push({
-                             name:$(this).text(),
+                             name:$(this).text().match(/[^:\s]+/g)[0],
                              desc:$(this).next().text()
                          })
                      });
                 });
-                next(ret);
+
+                next(obj2txt(ret));
 
                 window.close();
             });
