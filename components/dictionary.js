@@ -27,7 +27,7 @@ module.exports = function(obj,next){
                 //base info
                 var base = result.first();
                 ret.name = base.find(".base-word").find(".word-text").text();
-                               base.find(".base-speak").children("span").each(function(){
+                    base.find(".base-speak").children("span").each(function(){
                     ret.speak.push($(this).text());
                 });
                 base.find(".base-level").children("span").each(function(){
