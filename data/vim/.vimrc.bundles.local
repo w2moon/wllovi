@@ -107,3 +107,5 @@
 
 Bundle 'w2moon/wlvim'
 
+
+unlet g:override_spf13_bundles
