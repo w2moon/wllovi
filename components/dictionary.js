@@ -148,8 +148,12 @@ module.exports = function(obj,next){
                 //analyze
                 result.find('.prep-order .text-sentence .item').each(function(){
                      $(this).find('a').each(function(){
+                         var name = $(this).text().match(/[^:\s]+/g);
+                         if(!name || name.length <= 0){
+                              return;
+                         }
                          ret.analyze.push({
-                             name:$(this).text().match(/[^:\s]+/g)[0],
+                             name:name[0],
                              desc:$(this).next().text()
                          })
                      });
