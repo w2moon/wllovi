@@ -9,6 +9,7 @@
     Bundle 'jiangmiao/auto-pairs'
     Bundle 'ctrlpvim/ctrlp.vim'
     Bundle 'tacahiroy/ctrlp-funky'
+    Bundle 'FelikZ/ctrlp-py-matcher'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'vim-scripts/sessionman.vim'
     Bundle 'matchit.zip'
@@ -73,6 +74,8 @@
         Bundle 'Shougo/neosnippet'
         Bundle 'Shougo/neosnippet-snippets'
         Bundle 'honza/vim-snippets'
+    else
+        Bundle 'ajh17/VimCompletesMe'
     endif
 " }
 
@@ -105,7 +108,9 @@
     endif
 " }
 
-Bundle 'w2moon/wlvim'
 
+Bundle 'mxw/vim-jsx'
+Bundle 'tpope/vim-markdown'
+Bundle 'w2moon/wlvim'
 
 unlet g:override_spf13_bundles
