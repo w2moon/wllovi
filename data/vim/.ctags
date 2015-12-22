@@ -1,0 +1,18 @@
+--langdef=js
+--langmap=js:.js
+--regex-js=/([A-Za-z_][A-Za-z0-9_]+)[ \t]*[:=][ \t]*\{/\1/,object/
+--regex-js=/[A-Za-z0-9._]+\.([A-Za-z0-9_]+)[ \t]*[:=][ \t]*\{/\1/,object/
+--regex-js=/([A-Za-z0-9_]+)[ \t]*=[ \t]*[A-Za-z.]+\.extend/\1/,object/
+--regex-js=/[A-Za-z0-9._]+\.([A-Za-z0-9_]+)[ \t]*=[ \t]*[A-Za-z.]+\.extend/\1/,object/
+--regex-js=/([A-Za-z_][A-Za-z0-9_$()]+)[ \t]*[:=][ \t]*function[ \t]*\(/\1/,function/
+--regex-js=/[A-Za-z0-9._()]+\.([A-Za-z0-9_()]+)[ \t]*[:=][ \t]*function[ \t]*\(/\1/,function/
+--regex-js=/function[ \t]+([A-Za-z0-9_$]+)[ \t]*([^)])/\1/,function/
+--regex-js=/([A-Za-z_][A-Za-z0-9_$]+)[ \t]*[:=][ \t]*\[/\1/,array/
+--regex-js=/[A-Za-z0-9._]+\.([A-Za-z0-9_]+)[ \t]*[:=][ \t]*\[/\1/,array/
+--regex-js=/([A-Za-z_][A-Za-z0-9_]+)[ \t]*=[ \t]*[^"]'[^']*/\1/,string/
+--regex-js=/([A-Za-z_][A-Za-z0-9_]+)[ \t]*=[ \t]*[^']"[^"]*/\1/,string/
+--regex-js=/[A-Za-z0-9._]+\.([A-Za-z0-9_]+)[ \t]*=[ \t]*[^"]'[^']*/\1/,string/
+--regex-js=/[A-Za-z0-9._]+\.([A-Za-z0-9_]+)[ \t]*=[ \t]*[^']"[^"]*/\1/,string/
+--regex-js=/[^0-9a-zA-Z_]([A-Z][A-Z0-9_]+)[ \t]*[:=][ \t]*/\1/,object/
+--regex-js=/[A-Za-z_][A-Za-z0-9._]+\.([A-Z][A-Z0-9_]+)[ \t]*[:=][ \t]*/\1/,object/
+
