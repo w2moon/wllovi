@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+var os = require("os");
+var fs = require("fs");
+var path = require("path");
+
+var SRC_DIR = __dirname + "/../data/vim/";
+var DST_DIR = process.env.HOME;
+var FILES = [".ctags"
+            ,".vimrc.before.local"
+            ,".vimrc.bundles.local"];
+
+
+for(var i=0,len=FILES.length;i<len;++i){
+    var dst = path.join(DST_DIR,FILES[i]);
+    var src = path.join(SRC_DIR,FILES[i]);
+    try{
+        fs.accessSync(dst);
+        fs.unlinkSync(dst);
+    }
+    catch(e){
+
+    }
+    fs.symlink(src,dst,function(err){
+        if(err){
+            console.log(err);
+        }
+    });
+}
+
