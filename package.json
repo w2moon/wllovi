@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/w2moon/wllovi#readme",
   "dependencies": {
+    "adm-zip": "^0.4.7",
     "babel-preset-react": "^6.3.13",
     "babelify": "^7.2.0",
     "jsdom": "^7.0.2",
