@@ -1,6 +1,7 @@
 
 var domains = {
   "epicgames.com":1,
+  "duelyst.com":1,
   "gimpshop.com": 1, 
   "chromium.org": 1,
   "directcreative.com": 1, 
