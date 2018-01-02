@@ -1,5 +1,6 @@
 
 var domains = {
+"steamcommunity.com":1,
   "epicgames.com":1,
   "googlesource.com":1,
   "android.com":1,
