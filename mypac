@@ -2,6 +2,7 @@
 var domains = {
 "steamcommunity.com":1,
 "discord.gg":1,
+"discordapp.net":1,
 "discordapp.com":1,
 "discord.com":1,
   "epicgames.com":1,
