@@ -5,6 +5,7 @@ var domains = {
 "discordapp.net":1,
 "discordapp.com":1,
 "discord.com":1,
+"cdn.discordapp.com":1,
 "media.discordapp.net":1,
   "epicgames.com":1,
   "googlesource.com":1,
