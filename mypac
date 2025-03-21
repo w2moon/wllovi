@@ -1,5 +1,6 @@
 
 var domains = {
+"adobe.com":1,
 "huggingface.co":1,
 "mixamo.com":1,
 "unity.com":1,
