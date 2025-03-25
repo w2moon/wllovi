@@ -1,5 +1,6 @@
 
 var domains = {
+"ycombinator.com":1,
 "tripo3d.ai":1,
 "adobe.com":1,
 "huggingface.co":1,
